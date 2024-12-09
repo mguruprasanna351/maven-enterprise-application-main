@@ -1,0 +1,109 @@
+ case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac                                               read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p prompt] [-t timeout] [-u fd] >
+ cd [-L|[-P [-e]] [-@]] [dir]                                                                             readarray [-d delim] [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c quantum] [arra>
+ command [-pVv] command [arg ...]                                                                         readonly [-aAf] [name[=value] ...] or readonly -p
+ compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wordlist] [-F function] [-C command] >  return [n]
+ complete [-abcdefgjksuv] [-pr] [-DEI] [-o option] [-A action] [-G globpat] [-W wordlist] [-F function]>  select NAME [in WORDS ... ;] do COMMANDS; done
+ compopt [-o|+o option] [-DEI] [name ...]                                                                 set [-abefhkmnptuvxBCEHPT] [-o option-name] [--] [-] [arg ...]
+ continue [n]                                                                                             shift [n]
+ coproc [NAME] command [redirections]                                                                     shopt [-pqsu] [-o] [optname ...]
+ declare [-aAfFgiIlnrtux] [name[=value] ...] or declare -p [-aAfFilnrtux] [name ...]                      source filename [arguments]
+ dirs [-clpv] [+N] [-N]                                                                                   suspend [-f]
+ disown [-h] [-ar] [jobspec ... | pid ...]                                                                test [expr]
+ echo [-neE] [arg ...]                                                                                    time [-p] pipeline
+ enable [-a] [-dnps] [-f filename] [name ...]                                                             times
+ eval [arg ...]                                                                                           trap [-lp] [[arg] signal_spec ...]
+ exec [-cl] [-a name] [command [argument ...]] [redirection ...]                                          true
+ exit [n]                                                                                                 type [-afptP] name [name ...]
+ export [-fn] [name[=value] ...] or export -p                                                             typeset [-aAfFgiIlnrtux] name[=value] ... or typeset -p [-aAfFilnrtux] [name ...]
+ false                                                                                                    ulimit [-SHabcdefiklmnpqrstuvxPRT] [limit]
+ fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]                                         umask [-p] [-S] [mode]
+ fg [job_spec]                                                                                            unalias [-a] name [name ...]
+ for NAME [in WORDS ... ] ; do COMMANDS; done                                                             unset [-f] [-v] [-n] [name ...]
+ for (( exp1; exp2; exp3 )); do COMMANDS; done                                                            until COMMANDS; do COMMANDS-2; done
+ function name { COMMANDS ; } or name () { COMMANDS ; }                                                   variables - Names and meanings of some shell variables
+ getopts optstring name [arg ...]                                                                         wait [-fn] [-p var] [id ...]
+ hash [-lr] [-p pathname] [-dt] [name ...]                                                                while COMMANDS; do COMMANDS-2; done
+ help [-dms] [pattern ...]                                                                                { COMMANDS ; }
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch -r mains
+fatal: the -a, and -r, options to 'git branch' do not take a branch name.
+Did you mean to use: -a|-r --list <pattern>?
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git delete branch mains
+git: 'delete' is not a git command. See 'git --help'.
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch -- delete mains
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch
+* Release/1.0.0
+  delete
+  main
+  mains
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch -d mains
+Deleted branch mains (was d9ee064).
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch
+* Release/1.0.0
+  delete
+  main
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch -d mains
+error: branch 'mains' not found
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch
+* Release/1.0.0
+  delete
+  main
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch main
+fatal: a branch named 'main' already exists
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git branch
+* Release/1.0.0
+  delete
+  main
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (Release/1.0.0)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (main)
+$ git branch
+  Release/1.0.0
+  delete
+* main
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (main)
+$ git pull
+From https://github.com/mguruprasanna351/MAA_Repo
+ * [new branch]      mains      -> origin/mains
+Already up to date.
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (main)
+$ git branch
+  Release/1.0.0
+  delete
+* main
+
+hpgur@LAPTOP-RUA2BVCL MINGW64 /d/Git_Project/MAA_Repo (main)
+$ git branch -a
+  Release/1.0.0
+  delete
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/Release/1.0.0
+  remotes/origin/main
+  remotes/origin/mains
